@@ -2,7 +2,7 @@ class SitemapController < Spree::BaseController
   def index
     @public_dir = url_for ( :controller => '/' )
     respond_to do |format|
-      format.html { @nav = _add_products_to_tax(_build_taxon_hash, false) }
+      format.html { @nav = _add_products_to_tax(_build_taxon_hash, true) }
       format.xml { render :layout => false, :xml => _build_xml(_add_products_to_tax(_build_taxon_hash, false), @public_dir) }
       format.text do
         @nav = _add_products_to_tax(_build_taxon_hash, false)
