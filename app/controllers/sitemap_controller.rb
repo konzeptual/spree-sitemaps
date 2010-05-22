@@ -3,9 +3,9 @@ class SitemapController < Spree::BaseController
     @public_dir = url_for ( :controller => '/' )
     respond_to do |format|
       format.html { @nav = _add_products_to_tax(_build_taxon_hash, true) }
-      format.xml { render :layout => false, :xml => _build_xml(_add_products_to_tax(_build_taxon_hash, true), @public_dir) }
+      format.xml { render :layout => false, :xml => _build_xml(_add_products_to_tax(_build_taxon_hash, false), @public_dir) }
       format.text do
-        @nav = _add_products_to_tax(_build_taxon_hash, true)
+        @nav = _add_products_to_tax(_build_taxon_hash, false)
         render :layout => false
       end
     end
@@ -61,7 +61,7 @@ class SitemapController < Spree::BaseController
           pinfo['depth'] = taxon.permalink.split('/').size + 1
           taxon_link = taxon.permalink + 'p/' + product.permalink
           new_pinfo = pinfo.clone
-          new_pinfo['link'] = taxon_link
+          new_pinfo['link'] = 't/' + taxon_link
           nav[taxon_link] = new_pinfo
         end
       else
