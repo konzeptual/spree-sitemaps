@@ -1,3 +1,7 @@
+Список всех книг, дисков и других товаров интернет-магазина <%= Spree::Config[:site_name] %>
+Один товар может принадлежать разным категориям.
+
+
 <% @products_and_taxons.sort.each do |k,v| -%>
 <% v['depth'].to_i.times do -%>  <% end -%>
 <%= @public_dir %><%= v['name'] %>

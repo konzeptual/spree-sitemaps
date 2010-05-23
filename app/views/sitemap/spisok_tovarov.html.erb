@@ -1,3 +1,6 @@
+<h1>Список товаров</h1>
+Список всех книг, дисков и других товаров интернет-магазина <%= link_to Spree::Config[:site_name], @public_dir %>.
+Один товар может принадлежать разным категориям.<br />							    
 <% @products_and_taxons.sort.each do |k,v| -%>
   <% v['depth'].to_i.times do -%>&nbsp;&nbsp;<% end -%>
   <%= v['name'] %><br />
