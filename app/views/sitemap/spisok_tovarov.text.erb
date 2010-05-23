@@ -1,0 +1,4 @@
+<% @products_and_taxons.sort.each do |k,v| -%>
+<% v['depth'].to_i.times do -%>  <% end -%>
+<%= @public_dir %><%= v['name'] %>
+<% end -%>

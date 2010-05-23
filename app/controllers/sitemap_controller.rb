@@ -11,6 +11,14 @@ class SitemapController < Spree::BaseController
     end
   end
 
+  def spisok_tovarov
+    # respond_to do |format|
+    #   format.html do |format|
+        @products_and_taxons = _add_products_to_tax(_build_taxon_hash, true)
+    #   end
+    # end
+  end
+
   private
   def _build_xml(nav, public_dir)
     returning '' do |output|
